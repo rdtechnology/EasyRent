@@ -1,0 +1,142 @@
+﻿@model EasyRent_v0.Models.RegisterViewModel
+@{
+    ViewBag.Title = "New User Registration";
+}
+
+<script src="~/Scripts/jquery.validate.js"></script>
+
+<div class="login-right">
+    <div class="container">
+        <h3>@ViewBag.Title.</h3>
+        <div class="login-top">
+            @using (Html.BeginForm("AddNewUser", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new {@id="signUpForm", @class = "form-info", role = "form" }))
+            {
+                <div class="easyrent_fieldset">
+                    @Html.AntiForgeryToken()
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col-md-5 no-pad-left">
+                                @Html.LabelFor(m => m.FirstName)
+                                <span class="required">*</span>
+                            </div>
+                            <div class="col-md-7 no-pad-left no-pad-right">
+                                @Html.TextBoxFor(m => m.FirstName, new { @placeholder = "First Name", @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="col-md-5 no-pad-left">
+                                @Html.LabelFor(m => m.LastName)
+                                <span class="required">*</span>
+                            </div>
+                            <div class="col-md-7 no-pad-left no-pad-right">
+                                @Html.TextBoxFor(m => m.LastName, new { @placeholder = "Last Name", @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            @Html.LabelFor(m => m.Email)
+                            <span class="required">*</span>
+                        </div>
+                        <div class="col-md-10" style="padding-left:29px">
+                            @Html.TextBoxFor(m => m.Email, new { @placeholder = "Email", @class = "form-control"})
+                            @*<input type="email" name="Email" class="form-control" placeholder="e.g. myname@example.net" required data-email-msg="Email format is not valid" style="margin-bottom:15px" />*@
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col-md-5 no-pad-left">
+                                @Html.LabelFor(m => m.Password)
+                                <span class="required">*</span>
+                            </div>
+                            <div class="col-md-7 no-pad-left no-pad-right">
+                                @Html.PasswordFor(m => m.Password, new { @placeholder = "Password", @class = "form-control"})
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class="col-md-5 no-pad-left">
+                                @Html.LabelFor(m => m.ConfirmPassword)
+                                <span class="required">*</span>
+                            </div>
+                            <div class="col-md-7 no-pad-left no-pad-right">
+                                @Html.PasswordFor(m => m.ConfirmPassword, new { @placeholder = "Confirm Password", @class = "form-control"})
+                                @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="hvr-sweep-to-right">
+                            <input type="submit" value="Register" class="btn btn-default" />
+                        </label>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $("#signUpForm").validate({
+            rules: {
+                FirstName: "required",
+                LastName: "required",
+                Email: {
+                    required: true,
+                    email: true
+                },
+                Password: {
+                    required: true,
+                    minlength: 8
+                },
+                ConfirmPassword: {
+                    required: true,
+                    minlength: 8,
+                    equalTo: "#Password"
+                }
+            },
+            messages: {
+                FirstName: "Please enter your firstname",
+                LastName: "Please enter your lastname",
+                Password: {
+                    required: "Please provide a password",
+                    minlength: "Your password must be at least 8 characters long"
+                },
+                ConfirmPassword: {
+                    required: "Please provide a password",
+                    minlength: "Your password must be at least 8 characters long",
+                    equalTo: "Please enter the same password as above"
+                },
+                Email: "Please enter a valid email address",
+            }
+        });
+
+    });
+</script>
+
+<style>
+    .form-info {
+        width:650px;
+    }
+    .no-pad-left {
+        padding-left: 0px;
+    }
+
+    .no-pad-right {
+        padding-right: 0px;
+    }
+
+    .row {
+
+    }
+    .easyrent_fieldset {
+        border: 1px solid #e1e0d9;
+        border-radius: 4px;
+        margin: 0 0 5px;
+        padding: 20px 20px 20px 15px;
+        width: auto;
+    }
+</style>

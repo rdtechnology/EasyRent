@@ -1,0 +1,63 @@
+﻿@using EasyRent_v0.Models
+
+@model LoginViewModel
+
+@{
+    ViewBag.Title = "Log in";
+}
+
+<div class="login-right">
+    <div class="container">
+        <h3>@ViewBag.Title.</h3>
+        <div class="login-top">
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-info", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "text", @placeholder = "Email" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new { @class = "col-md-2" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.Password, new { @placeholder = "Password" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <div class="checkbox">
+                                @Html.CheckBoxFor(m => m.RememberMe)
+                                @Html.LabelFor(m => m.RememberMe)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="hvr-sweep-to-right">
+                            <input type="submit" value="Log in" class="btn btn-default" />
+                        </label>
+                    </div>
+                    @*<p>
+                        @Html.ActionLink("Register as a new user", "Register")
+                    </p>*@
+                    @* Enable this once you have account confirmation enabled for password reset functionality
+                        <p>
+                            @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                        </p>*@
+            }
+            <div>
+                @Html.ValidationSummary(true)
+            </div>
+            <div class="create">
+                <h4>New To Real Home?</h4>
+                <a class="hvr-sweep-to-right" href="@Url.Action("Register", "Account")">Create an Account</a>
+                <div class="clearfix"> </div>
+            </div>
+
+        </div>
+        
+    </div>
+</div>

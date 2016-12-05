@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyRent_v0", "EasyRent_v0\EasyRent_v0.csproj", "{6241C65A-DC4A-40F5-A686-F36B0D1E2259}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyRental.Database", "EasyRental.Database\EasyRental.Database.csproj", "{0F0DCC5A-41FE-44AB-A2B8-E05E8C01BD68}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6241C65A-DC4A-40F5-A686-F36B0D1E2259}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6241C65A-DC4A-40F5-A686-F36B0D1E2259}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6241C65A-DC4A-40F5-A686-F36B0D1E2259}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6241C65A-DC4A-40F5-A686-F36B0D1E2259}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F0DCC5A-41FE-44AB-A2B8-E05E8C01BD68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F0DCC5A-41FE-44AB-A2B8-E05E8C01BD68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F0DCC5A-41FE-44AB-A2B8-E05E8C01BD68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F0DCC5A-41FE-44AB-A2B8-E05E8C01BD68}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
